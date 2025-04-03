@@ -1,7 +1,6 @@
 package com.example.schedule_develop.controller;
 
-import com.example.schedule_develop.dto.ScheduleRequestDto;
-import com.example.schedule_develop.dto.ScheduleResponseDto;
+import com.example.schedule_develop.entity.Schedule;
 import com.example.schedule_develop.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,7 @@ public class ScheduleController {
     private final ScheduleService scheduleService;
 
     @PostMapping
-    public ResponseEntity<ScheduleResponseDto> createSchedule(@RequestBody ScheduleRequestDto requestDto) {
-        return ResponseEntity.ok(scheduleService.createSchedule(requestDto));
+    public ResponseEntity<Schedule> createSchedule(@RequestBody Schedule schedule) {
+        return ResponseEntity.ok(scheduleService.createSchedule(schedule));
     }
 }
