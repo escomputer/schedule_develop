@@ -24,4 +24,9 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
     public List<Schedule> findAll() {
         return entityManager.createQuery("select s from Schedule s", Schedule.class).getResultList();
     }
+
+    @Override
+    public Schedule findById(Long id){
+        return entityManager.find(Schedule.class, id);
+    }
 }

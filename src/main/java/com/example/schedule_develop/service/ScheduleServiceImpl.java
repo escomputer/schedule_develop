@@ -21,6 +21,11 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public List<Schedule> getSchedules() {
-        return  scheduleRepository.findAll();
+        return scheduleRepository.findAll();
+    }
+
+    @Override
+    public Schedule getScheduleById(Long id) {
+        return scheduleRepository.findById(id);
     }
 }

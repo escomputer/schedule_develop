@@ -8,4 +8,6 @@ public interface ScheduleService {
     Schedule createSchedule(Schedule schedule);
 
     List<Schedule> getSchedules();
+
+    Schedule getScheduleById(Long id);
 }
