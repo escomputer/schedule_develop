@@ -1,4 +1,7 @@
 package com.example.schedule_develop.service;
 
-public class ScheduleService {
+import com.example.schedule_develop.entity.Schedule;
+
+public interface ScheduleService {
+    Schedule createSchedule(Schedule schedule);
 }
