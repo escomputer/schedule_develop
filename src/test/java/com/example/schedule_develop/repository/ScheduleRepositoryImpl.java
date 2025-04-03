@@ -5,6 +5,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ScheduleRepositoryImpl implements ScheduleRepository {
 
@@ -16,5 +18,10 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
         if (schedule.getId() == null) {
             return schedule;
         } else return entityManager.merge(schedule);
+    }
+
+    @Override
+    public List<Schedule> findAll() {
+        return entityManager.createQuery("select s from Schedule s", Schedule.class).getResultList();
     }
 }
