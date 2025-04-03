@@ -18,7 +18,7 @@ public class Schedule extends Base{
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true) //user없이도 저장(일단 lv1에서는)
     private User user;
     private String title;
     private String content;
