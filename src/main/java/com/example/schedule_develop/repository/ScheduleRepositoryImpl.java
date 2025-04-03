@@ -16,8 +16,11 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
     @Override
     public Schedule save(Schedule schedule) {
         if (schedule.getId() == null) {
+            entityManager.persist(schedule);  // 새로운 entity를 저장하는 기능
             return schedule;
-        } else return entityManager.merge(schedule);
+        } else {
+            return entityManager.merge(schedule);
+        }
     }
 
     @Override
