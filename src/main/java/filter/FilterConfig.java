@@ -1,4 +1,4 @@
-package com.example.schedule_develop.filter;
+package filter;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
