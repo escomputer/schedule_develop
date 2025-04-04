@@ -6,6 +6,7 @@ import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ScheduleRepositoryImpl implements ScheduleRepository {
@@ -29,8 +30,8 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
     }
 
     @Override
-    public Schedule findById(Long id){
-        return entityManager.find(Schedule.class, id);
+    public Optional<Schedule> findById(Long id){
+        return Optional.ofNullable(entityManager.find(Schedule.class, id));
     }
 
     @Override

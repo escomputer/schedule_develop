@@ -21,4 +21,6 @@ public abstract class Base{
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime updatedAt = LocalDateTime.now();;
+
+
 }

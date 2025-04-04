@@ -12,8 +12,8 @@ public class ScheduleRequestDto {
 
     public Schedule toEntity(User user) {
         Schedule schedule = new Schedule();
-        schedule.setTitle(title);
-        schedule.setContent(content);
+        schedule.setTitle(this.title);
+        schedule.setContent(this.content);
         schedule.setUser(user);
         return schedule;
 
