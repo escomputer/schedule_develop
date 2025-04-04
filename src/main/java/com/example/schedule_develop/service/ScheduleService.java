@@ -12,4 +12,6 @@ public interface ScheduleService {
     Schedule getScheduleById(Long id);
 
     void deleteSchedule(Long id);
+
+    Schedule updateSchedule(Long id, Schedule schedule);
 }
