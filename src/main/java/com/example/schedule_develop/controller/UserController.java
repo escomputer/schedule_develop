@@ -41,5 +41,10 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<UserResponseDto> registerUser(@RequestBody UserRequestDto userRequestDto){
+            return ResponseEntity.ok(userService.registerUser(userRequestDto));
+    }
+
 }
 

@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDto getUserById(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("해당 일정이 없습니다."));
+                .orElseThrow(()->new RuntimeException("해당 유저가 없습니다."));
         return new UserResponseDto(user);
     }
 
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(()-> new RuntimeException("해당 일정이 없습니다."));
         user.setUsername(requestDto.getUsername());
         user.setEmail(requestDto.getEmail());
-        return new UserResponseDto(user);
+        return new UserResponseDto(userRepository.save(user));
     }
 
     @Override
@@ -57,5 +57,18 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
+    @Override
+    public UserResponseDto registerUser(UserRequestDto requestDto) {
+        if (userRepository.findByEmail(requestDto.getEmail()).isPresent()) {
+            throw new IllegalArgumentException("이미 존재하는 이메일입니다.");
+        }
+        User user = new User();
+        user.setUsername(requestDto.getUsername());
+        user.setEmail(requestDto.getEmail());
+        user.setPassword(requestDto.getPassword());
+
+        User savedUser = userRepository.save(user);
+        return new UserResponseDto(savedUser);
+    }
 
 }
