@@ -28,4 +28,10 @@ public class ScheduleServiceImpl implements ScheduleService {
     public Schedule getScheduleById(Long id) {
         return scheduleRepository.findById(id);
     }
+
+    @Override
+    @Transactional
+    public void deleteSchedule(Long id) {
+        scheduleRepository.deleteById(id);
+    }
 }

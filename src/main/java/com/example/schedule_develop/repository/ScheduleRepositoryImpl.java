@@ -32,4 +32,12 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
     public Schedule findById(Long id){
         return entityManager.find(Schedule.class, id);
     }
+
+    @Override
+    public void deleteById(Long id){
+        Schedule schedule = entityManager.find(Schedule.class, id);
+        if (schedule != null) {
+            entityManager.remove(schedule);
+        }
+    }
 }

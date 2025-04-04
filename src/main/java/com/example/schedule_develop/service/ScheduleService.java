@@ -10,4 +10,6 @@ public interface ScheduleService {
     List<Schedule> getSchedules();
 
     Schedule getScheduleById(Long id);
+
+    void deleteSchedule(Long id);
 }
