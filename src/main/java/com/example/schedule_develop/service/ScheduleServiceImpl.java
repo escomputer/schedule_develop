@@ -49,6 +49,9 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     @Transactional
     public void deleteSchedule(Long id) {
+        if (!userRepository.existsById(id)) {
+            throw new IllegalArgumentException("해당하는 일정이 없습니다.");
+        }
         scheduleRepository.deleteById(id);
     }
 

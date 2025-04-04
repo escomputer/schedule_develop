@@ -56,7 +56,9 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+        if (!userRepository.existsById(id)) {
+            throw new IllegalArgumentException("해당 유저가 존재하지 않습니다.");
+        }
     }
 
     @Override
