@@ -22,7 +22,8 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     @Transactional
     public ScheduleResponseDto createSchedule(ScheduleRequestDto requestDto) {
-        User user = userRepository.findById(requestDto.getUserId());
+        User user = userRepository.findById(requestDto.getUserId())
+                .orElseThrow(() -> new RuntimeException("해당 일정이 존재하지 않습니다."));
 
         Schedule schedule = requestDto.toEntity(user); //entity 바로 저장
         Schedule savedSchedule = scheduleRepository.save(schedule);
