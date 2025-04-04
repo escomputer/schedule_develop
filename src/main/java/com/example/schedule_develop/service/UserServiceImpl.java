@@ -32,14 +32,16 @@ public class UserServiceImpl implements UserService {
         return new UserResponseDto(user);
     }
 
-    @Override
-    @Transactional
-    public UserResponseDto createUser(UserRequestDto requestDto) {
-    User user = requestDto.toEntity();
-    User savedUser = userRepository.save(user);
+//    @Override
+//    @Transactional
+//    public UserResponseDto createUser(UserRequestDto requestDto) {
+//    User user = requestDto.toEntity();
+//    User savedUser = userRepository.save(user);
+//
+//        return new UserResponseDto(savedUser);
+//    }
 
-        return new UserResponseDto(savedUser);
-    }
+    // register (회원가입) 진행시 유저가 생성되므로, create user 은 삭제
 
     @Override
     @Transactional

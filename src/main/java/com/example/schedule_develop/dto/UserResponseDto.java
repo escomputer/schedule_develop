@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 public class UserResponseDto {
     private String username;
     private String email;
-    private Long id;
+    private Long userId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public UserResponseDto(User user){
         this.username = user.getUsername();
         this.email = user.getEmail();
-        this.id = user.getId();
+        this.userId = user.getUserId();
         this.createdAt = user.getCreatedAt();
         this.updatedAt = user.getUpdatedAt();
 

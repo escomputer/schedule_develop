@@ -15,10 +15,11 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-    @PostMapping
-    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto userRequestDto){
-        return ResponseEntity.ok(userService.createUser(userRequestDto));
-    }
+//    @PostMapping
+//    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto userRequestDto){
+//        return ResponseEntity.ok(userService.createUser(userRequestDto));
+//    }
+    // create user 은 register 로 댕체
 
     @GetMapping
     public ResponseEntity<List<UserResponseDto>> getUsers(){
